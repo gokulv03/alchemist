@@ -1810,15 +1810,18 @@ svg {
   transform: none;
 }
 
-/* ---- Cocktail cards: borderless, transparent ---- */
+/* ---- Cocktail cards: subtle top rule, no box ---- */
 .spirit-dark .cocktail-card {
   background: none;
   border: none;
+  border-top: 1px solid rgba(210, 190, 160, 0.12);
   box-shadow: none;
+  padding-top: 1.5rem;
 }
 .spirit-dark .cocktail-card:hover {
   background: none;
-  border: none;
+  border-color: transparent;
+  border-top-color: rgba(210, 190, 160, 0.28);
   box-shadow: none;
   transform: none;
 }
@@ -2235,7 +2238,7 @@ svg {
   padding-block: clamp(4rem, 10vw, 7rem);
   background: radial-gradient(
       80% 120% at 50% 0%,
-      color-mix(in oklch, var(--primary) 28%, transparent),
+      oklch(0.28 0.04 50 / 0.35),
       transparent 60%
     ),
     linear-gradient(
@@ -2243,13 +2246,13 @@ svg {
       oklch(0.08 0.02 52 / 0.9)
     ),
     url(/image2.jpg) center / cover no-repeat;
-  border-top: 1px solid var(--border);
+  border-top: none;
 }
 .home-cta-inner {
   text-align: center;
   display: grid;
   justify-items: center;
-  gap: 1.2rem;
+  gap: 1.4rem;
 }
 .home-cta-title {
   font-size: clamp(2rem, 5vw, 3.2rem);
@@ -2257,8 +2260,28 @@ svg {
   color: rgba(237, 220, 195, 0.88);
 }
 .home-cta-lede {
-  color: var(--muted);
-  max-width: 48ch;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(200, 185, 165, 0.62);
+  max-width: 44ch;
+}
+.home-cta .btn-primary {
+  background: none;
+  border: 1px solid rgba(210, 190, 160, 0.35);
+  color: rgba(232, 215, 190, 0.82);
+  box-shadow: none;
+  letter-spacing: 0.06em;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+}
+.home-cta .btn-primary:hover {
+  background: rgba(210, 190, 160, 0.08);
+  border-color: rgba(232, 215, 190, 0.55);
+  color: rgba(240, 225, 205, 0.95);
+  box-shadow: none;
+  transform: none;
 }
 
 /* ---- Footer ---- */
