@@ -1515,13 +1515,14 @@ svg {
 }
 
 /* ============================================================
-   Cocktails page — full-page background
+   Cocktails page — sketch background
    ============================================================ */
 .cocktails-page {
   min-height: 100vh;
+  background-color: #f8f6f2;
   background-image: url(/cocktail.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-attachment: fixed;
 }
 
@@ -2367,179 +2368,194 @@ svg {
 }
 
 /* ============================================================
-   Cocktails page — dark overlay theme
+   Cocktails page — light theme
    All scoped under .cocktails-page to avoid other pages
    ============================================================ */
 
-/* -- Token overrides so inherited colors go dark ----------- */
+/* -- Token overrides for light surface --------------------- */
 .cocktails-page {
-  --ink: oklch(0.93 0.012 70);
-  --muted: oklch(0.66 0.018 65);
-  --faint: oklch(0.46 0.014 62);
-  --border: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  --ink: oklch(0.14 0.018 55);
+  --muted: oklch(0.38 0.018 55);
+  --faint: oklch(0.55 0.014 55);
+  --border: rgba(30, 18, 8, 0.1);
+  --border-strong: rgba(30, 18, 8, 0.2);
   color: var(--ink);
 }
 
 /* -- Navbar ------------------------------------------------ */
 .cocktails-page .site-header {
-  background: rgba(8, 6, 4, 0.25);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
 }
 .cocktails-page .site-header[data-scrolled="true"] {
-  background: rgba(8, 6, 4, 0.55);
-  border-bottom-color: rgba(255, 255, 255, 0.09);
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.65);
+  border-bottom-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1px 16px rgba(30, 18, 8, 0.07);
 }
 .cocktails-page .brand-mark {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(232, 215, 195, 0.75);
+  background: rgba(30, 18, 8, 0.07);
+  color: oklch(0.28 0.025 55);
 }
 .cocktails-page .brand-word {
-  color: rgba(232, 215, 195, 0.72);
+  color: oklch(0.22 0.022 55);
 }
 .cocktails-page .spirit-nav-link {
   background: none;
   border: none;
-  color: rgba(205, 185, 160, 0.58);
+  color: oklch(0.48 0.018 55);
   padding-inline: 0.45rem;
 }
 .cocktails-page .spirit-nav-link:hover {
   background: none;
-  color: rgba(232, 215, 195, 0.88);
+  color: oklch(0.18 0.02 55);
 }
 .cocktails-page .spirit-nav-link[aria-current="page"] {
   background: none;
   border: none;
-  color: rgba(232, 215, 195, 0.9);
+  color: oklch(0.14 0.02 55);
   font-weight: 600;
 }
 .cocktails-page .header-cta {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: rgba(215, 198, 172, 0.8);
+  background: oklch(0.14 0.018 55);
+  border: 1px solid transparent;
+  color: oklch(0.92 0.012 65);
 }
 .cocktails-page .header-cta:hover {
-  background: rgba(255, 255, 255, 0.13);
-  color: rgba(232, 215, 195, 0.95);
+  background: oklch(0.22 0.022 55);
+  color: #fff;
 }
 
 /* -- Section header ---------------------------------------- */
 .cocktails-page .section-title {
-  color: rgba(232, 215, 195, 0.9);
+  color: oklch(0.14 0.02 55);
 }
 .cocktails-page .section-lede {
-  color: rgba(185, 170, 150, 0.7);
+  color: oklch(0.42 0.016 58);
 }
 .cocktails-page .cocktail-count {
-  background: rgba(210, 178, 128, 0.12);
-  border-color: rgba(210, 178, 128, 0.22);
-  color: rgba(210, 185, 148, 0.85);
+  background: oklch(0.14 0.018 55 / 0.07);
+  border-color: oklch(0.14 0.018 55 / 0.14);
+  color: oklch(0.28 0.022 55);
 }
 
 /* -- Filter bar -------------------------------------------- */
 .cocktails-page .filter-bar {
-  background: rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 16px rgba(30, 18, 8, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 .cocktails-page .filter-group-label {
-  color: rgba(175, 158, 132, 0.65);
+  color: oklch(0.52 0.014 58);
 }
 .cocktails-page .filter-chip {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(30, 18, 8, 0.15);
+  color: oklch(0.38 0.016 56);
 }
 .cocktails-page .filter-chip:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.26);
-  color: rgba(255, 255, 255, 0.85);
+  background: rgba(30, 18, 8, 0.04);
+  border-color: rgba(30, 18, 8, 0.28);
+  color: oklch(0.18 0.02 55);
   transform: none;
 }
 .cocktails-page .filter-chip[data-active="true"] {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.22);
-  color: rgba(255, 255, 255, 0.92);
+  background: oklch(0.14 0.018 55);
+  border-color: oklch(0.14 0.018 55);
+  color: #fff;
 }
 
-/* -- Cocktail cards ---------------------------------------- */
+/* -- Cocktail cards — liquid glass ------------------------- */
 .cocktails-page .cocktail-card {
-  background: rgba(255, 255, 255, 0.06);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.52);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 4px 24px rgba(30, 18, 8, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 .cocktails-page .cocktail-card:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.68);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 8px 40px rgba(30, 18, 8, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-3px);
 }
 .cocktails-page .cocktail-name {
-  color: rgba(232, 215, 195, 0.9);
+  color: oklch(0.14 0.02 55);
 }
 .cocktails-page .cocktail-tagline {
-  color: rgba(180, 158, 128, 0.82);
+  color: oklch(0.44 0.022 50);
 }
 .cocktails-page .cocktail-hook {
-  color: rgba(195, 178, 155, 0.7);
+  color: oklch(0.38 0.016 56);
 }
 .cocktails-page .ingredient-list li {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(205, 188, 165, 0.75);
+  background: oklch(0.96 0.006 65);
+  border-color: rgba(30, 18, 8, 0.1);
+  color: oklch(0.28 0.018 55);
 }
 .cocktails-page .cocktail-method-label {
-  color: rgba(158, 140, 118, 0.58);
+  color: oklch(0.55 0.012 58);
 }
 .cocktails-page .cocktail-method {
-  color: rgba(192, 175, 152, 0.7);
+  color: oklch(0.4 0.014 56);
 }
 .cocktails-page .cocktail-meta {
-  border-top-color: rgba(255, 255, 255, 0.08);
+  border-top-color: rgba(30, 18, 8, 0.08);
 }
 .cocktails-page .cocktail-glass {
-  color: rgba(168, 150, 126, 0.65);
+  color: oklch(0.5 0.014 56);
 }
 .cocktails-page .strength-label {
-  color: rgba(168, 150, 126, 0.65);
+  color: oklch(0.5 0.014 56);
 }
 .cocktails-page .strength-bars span {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(30, 18, 8, 0.1);
 }
 .cocktails-page .strength-bars span[data-on="true"] {
-  background: rgba(210, 185, 148, 0.82);
+  background: oklch(0.4 0.08 50);
 }
 .cocktails-page .difficulty[data-level="easy"] {
-  background: oklch(0.6 0.14 150 / 0.2);
-  color: oklch(0.82 0.13 150);
+  background: oklch(0.94 0.06 145);
+  color: oklch(0.38 0.14 145);
 }
 .cocktails-page .difficulty[data-level="medium"] {
-  background: rgba(210, 185, 148, 0.14);
-  color: rgba(215, 192, 155, 0.88);
+  background: oklch(0.94 0.04 70);
+  color: oklch(0.38 0.1 60);
 }
 .cocktails-page .difficulty[data-level="advanced"] {
-  background: oklch(0.74 0.15 75 / 0.2);
-  color: oklch(0.84 0.13 75);
+  background: oklch(0.94 0.06 30);
+  color: oklch(0.42 0.14 30);
 }
 .cocktails-page .browse-card-spirit {
-  background: rgba(210, 178, 128, 0.13);
-  border-color: rgba(210, 178, 128, 0.24);
-  color: rgba(210, 185, 148, 0.85);
+  background: oklch(0.14 0.018 55 / 0.07);
+  border-color: oklch(0.14 0.018 55 / 0.14);
+  color: oklch(0.28 0.022 55);
+}
+.cocktails-page .cocktail-subs-toggle {
+  color: oklch(0.52 0.014 56);
+}
+.cocktails-page .cocktail-subs-toggle:hover {
+  color: oklch(0.22 0.02 55);
+}
+.cocktails-page .cocktail-subs-list li {
+  color: oklch(0.4 0.016 56);
 }
 
 /* -- Footer ------------------------------------------------ */
 .cocktails-page .site-footer {
-  background: rgba(6, 4, 2, 0.55);
-  border-top-color: rgba(255, 255, 255, 0.07);
+  background: oklch(0.97 0.005 65);
+  border-top-color: rgba(30, 18, 8, 0.1);
 }
 .cocktails-page .footer-brand {
-  color: rgba(196, 172, 138, 0.78);
+  color: oklch(0.28 0.02 55);
 }
 .cocktails-page .footer-note {
-  color: rgba(162, 145, 122, 0.62);
+  color: oklch(0.48 0.014 58);
 }
