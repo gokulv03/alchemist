@@ -1,7 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import type { Cocktail } from "@/lib/data";
 import { DifficultyBadge, StrengthMeter } from "./atoms";
 
 export function CocktailCard({ cocktail }: { cocktail: Cocktail }) {
+  const [showSubs, setShowSubs] = useState(false);
+  const hasSubs = cocktail.subs && cocktail.subs.length > 0;
+
   return (
     <article id={cocktail.slug} className="cocktail-card">
       <div className="cocktail-card-top">
@@ -18,6 +24,28 @@ export function CocktailCard({ cocktail }: { cocktail: Cocktail }) {
           <li key={ing}>{ing}</li>
         ))}
       </ul>
+
+      {hasSubs && (
+        <div className="cocktail-subs">
+          <button
+            className="cocktail-subs-toggle"
+            onClick={() => setShowSubs((s) => !s)}
+            aria-expanded={showSubs}
+          >
+            {showSubs ? "Hide swaps" : "Missing an ingredient?"}
+          </button>
+          {showSubs && (
+            <ul className="cocktail-subs-list">
+              {cocktail.subs!.map((s) => (
+                <li key={s.ingredient}>
+                  <span className="cocktail-subs-ingredient">No {s.ingredient}?</span>
+                  {" "}{s.swap}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
 
       <p className="cocktail-method">
         <span className="cocktail-method-label">Method</span>

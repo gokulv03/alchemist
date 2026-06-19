@@ -27,6 +27,11 @@ export interface Mixer {
   color: string;
 }
 
+export interface Sub {
+  ingredient: string;
+  swap: string;
+}
+
 export interface Cocktail {
   slug: string;
   name: string;
@@ -42,6 +47,8 @@ export interface Cocktail {
   difficulty: Difficulty;
   /** signature note that makes it worth trying */
   hook: string;
+  /** ingredient substitutions for hard-to-find items */
+  subs?: Sub[];
 }
 
 export interface Spirit {
@@ -187,6 +194,9 @@ export const gin: Spirit = {
       strength: 3,
       difficulty: "Easy",
       hook: "Bitter, bracing, perfectly balanced — the apéritif other apéritifs answer to.",
+      subs: [
+        { ingredient: "Campari", swap: "Aperol — lighter, less bitter, slightly sweeter" },
+      ],
     },
     {
       slug: "martini",
@@ -239,6 +249,9 @@ export const gin: Spirit = {
       strength: 2,
       difficulty: "Easy",
       hook: "Tart, clean and a little nautical — proof that less is more.",
+      subs: [
+        { ingredient: "Lime cordial", swap: "Fresh lime juice + 10ml sugar syrup — sharper and brighter" },
+      ],
     },
     {
       slug: "aviation",
@@ -252,6 +265,10 @@ export const gin: Spirit = {
       strength: 2,
       difficulty: "Advanced",
       hook: "Floral, sour and that unmistakable pale-violet sky.",
+      subs: [
+        { ingredient: "Crème de violette", swap: "Elderflower liqueur — loses the purple hue but keeps the floral note" },
+        { ingredient: "Maraschino", swap: "Cointreau or Amaretto — drier or sweeter respectively" },
+      ],
     },
     {
       slug: "french-75",
@@ -265,6 +282,9 @@ export const gin: Spirit = {
       strength: 2,
       difficulty: "Medium",
       hook: "Named after a field gun — it hits with that kind of celebration.",
+      subs: [
+        { ingredient: "Champagne", swap: "Prosecco or Cava — work equally well and cost far less" },
+      ],
     },
     {
       slug: "last-word",
@@ -278,6 +298,10 @@ export const gin: Spirit = {
       strength: 3,
       difficulty: "Advanced",
       hook: "Herbal, sharp and complex — a Prohibition ghost worth resurrecting.",
+      subs: [
+        { ingredient: "Green Chartreuse", swap: "Yellow Chartreuse — milder, sweeter, easier to find" },
+        { ingredient: "Maraschino", swap: "Cointreau — less cherry, more orange, still works" },
+      ],
     },
     {
       slug: "clover-club",
@@ -291,6 +315,10 @@ export const gin: Spirit = {
       strength: 2,
       difficulty: "Advanced",
       hook: "A pre-Prohibition stunner with a cloud of foam on top.",
+      subs: [
+        { ingredient: "Raspberry syrup", swap: "Muddle 8 fresh raspberries with 15ml sugar syrup and strain" },
+        { ingredient: "Egg white", swap: "3 tbsp aquafaba (liquid from a tin of chickpeas) — same foam" },
+      ],
     },
     {
       slug: "bramble",
@@ -304,6 +332,9 @@ export const gin: Spirit = {
       strength: 2,
       difficulty: "Medium",
       hook: "Modern British classic — tart, fruity and beautiful as it bleeds.",
+      subs: [
+        { ingredient: "Crème de mûre", swap: "Any dark berry liqueur, blackcurrant cordial, or Chambord" },
+      ],
     },
     {
       slug: "bees-knees",
@@ -317,6 +348,9 @@ export const gin: Spirit = {
       strength: 2,
       difficulty: "Easy",
       hook: "Prohibition's friendliest sour — honey rounds the citrus beautifully.",
+      subs: [
+        { ingredient: "Honey syrup", swap: "Stir 2 parts honey into 1 part hot water until dissolved, then cool" },
+      ],
     },
     {
       slug: "southside",
@@ -419,6 +453,10 @@ export const whisky: Spirit = {
       strength: 3,
       difficulty: "Easy",
       hook: "The benchmark stirred drink — spice, sweetness and bitters in balance.",
+      subs: [
+        { ingredient: "Rye whiskey", swap: "Bourbon — sweeter and rounder, slightly less spice" },
+        { ingredient: "Brandied cherry", swap: "Any cocktail cherry, or a Maraschino cherry" },
+      ],
     },
     {
       slug: "whiskey-sour",
@@ -432,6 +470,9 @@ export const whisky: Spirit = {
       strength: 2,
       difficulty: "Medium",
       hook: "The template every sour follows — and a cloud of foam on top.",
+      subs: [
+        { ingredient: "Egg white", swap: "3 tbsp aquafaba (chickpea tin liquid) — identical foam, vegan" },
+      ],
     },
     {
       slug: "boulevardier",
@@ -458,6 +499,10 @@ export const whisky: Spirit = {
       strength: 3,
       difficulty: "Advanced",
       hook: "Old as the cocktail itself — bracing, herbal and unmistakably New Orleans.",
+      subs: [
+        { ingredient: "Peychaud's bitters", swap: "Angostura bitters — less floral, but the drink still works" },
+        { ingredient: "Absinthe rinse", swap: "Pernod or Pastis — rinse the glass identically" },
+      ],
     },
     {
       slug: "mint-julep",
@@ -484,6 +529,9 @@ export const whisky: Spirit = {
       strength: 3,
       difficulty: "Easy",
       hook: "Two ingredients, pure warmth — Scotch rounded out by honeyed liqueur.",
+      subs: [
+        { ingredient: "Drambuie", swap: "20ml Scotch + 1 tsp honey syrup — rough but effective" },
+      ],
     },
     {
       slug: "whisky-highball",
@@ -536,6 +584,10 @@ export const whisky: Spirit = {
       strength: 2,
       difficulty: "Advanced",
       hook: "A modern classic — sweet heat finished with a wisp of peat.",
+      subs: [
+        { ingredient: "Honey-ginger syrup", swap: "Honey syrup with 3 slices of fresh ginger steeped for 10 min" },
+        { ingredient: "Islay Scotch float", swap: "Any peated or smoky Scotch works for the float" },
+      ],
     },
     {
       slug: "paper-plane",
@@ -549,6 +601,9 @@ export const whisky: Spirit = {
       strength: 2,
       difficulty: "Medium",
       hook: "Bittersweet, citrusy and impossibly balanced — the contemporary benchmark.",
+      subs: [
+        { ingredient: "Amaro Nonino", swap: "Any amaro (Montenegro, Averna) or extra Aperol" },
+      ],
     },
   ],
 };
@@ -647,6 +702,10 @@ export const rum: Spirit = {
       strength: 3,
       difficulty: "Advanced",
       hook: "Almond, orange and rum layered deep — the drink that defined tiki.",
+      subs: [
+        { ingredient: "Orgeat", swap: "Amaretto + a splash of almond milk — nuttier but close" },
+        { ingredient: "Orange curaçao", swap: "Triple sec or any orange liqueur" },
+      ],
     },
     {
       slug: "dark-and-stormy",
@@ -699,6 +758,9 @@ export const rum: Spirit = {
       strength: 3,
       difficulty: "Easy",
       hook: "Molasses depth and oak, seasoned with bitters — sipping rum's finest frame.",
+      subs: [
+        { ingredient: "Demerara syrup", swap: "Dark brown sugar dissolved in equal hot water, then cooled" },
+      ],
     },
     {
       slug: "painkiller",
@@ -725,6 +787,9 @@ export const rum: Spirit = {
       strength: 3,
       difficulty: "Medium",
       hook: "Passion fruit and a double hit of rum — bright, boozy and tropical.",
+      subs: [
+        { ingredient: "Passion fruit syrup", swap: "Fresh passion fruit pulp strained + sugar syrup, or mango juice" },
+      ],
     },
     {
       slug: "ti-punch",
@@ -738,6 +803,10 @@ export const rum: Spirit = {
       strength: 3,
       difficulty: "Easy",
       hook: "The French Caribbean ritual — grassy agricole, lime and cane, nothing else.",
+      subs: [
+        { ingredient: "Rhum agricole blanc", swap: "Any white rum — the grassy, vegetal character will differ" },
+        { ingredient: "Cane syrup", swap: "Plain sugar syrup or light agave syrup" },
+      ],
     },
     {
       slug: "rum-punch",
@@ -764,6 +833,9 @@ export const rum: Spirit = {
       strength: 2,
       difficulty: "Medium",
       hook: "A 1920s Cuban classic — dry, refined and far more sophisticated than it sounds.",
+      subs: [
+        { ingredient: "Orange curaçao", swap: "Triple sec or Cointreau — same orange flavour" },
+      ],
     },
   ],
 };
@@ -888,6 +960,10 @@ export const tequila: Spirit = {
       strength: 3,
       difficulty: "Medium",
       hook: "The agave answer to the Old Fashioned — rich, spirit-forward and lightly smoky.",
+      subs: [
+        { ingredient: "Mezcal", swap: "Extra reposado tequila — loses the smoke, still delicious" },
+        { ingredient: "Agave syrup", swap: "Honey syrup or plain sugar syrup" },
+      ],
     },
     {
       slug: "ranch-water",
@@ -927,6 +1003,9 @@ export const tequila: Spirit = {
       strength: 2,
       difficulty: "Easy",
       hook: "Spicy ginger and dark berry — a tequila highball with a devilish streak.",
+      subs: [
+        { ingredient: "Crème de cassis", swap: "Blackcurrant cordial, Chambord, or pomegranate juice" },
+      ],
     },
     {
       slug: "matador",
@@ -953,6 +1032,9 @@ export const tequila: Spirit = {
       strength: 2,
       difficulty: "Medium",
       hook: "The classic with a curl of smoke — a chilli rim takes it further.",
+      subs: [
+        { ingredient: "Mezcal", swap: "Extra tequila — loses the smoke, add a pinch of smoked paprika" },
+      ],
     },
     {
       slug: "cantarito",
@@ -979,6 +1061,10 @@ export const tequila: Spirit = {
       strength: 2,
       difficulty: "Medium",
       hook: "The sour template built on agave — a cloud of foam over bright lime.",
+      subs: [
+        { ingredient: "Egg white", swap: "3 tbsp aquafaba (chickpea tin liquid) — same foam, vegan" },
+        { ingredient: "Agave syrup", swap: "Sugar syrup or honey syrup" },
+      ],
     },
   ],
 };
@@ -1051,6 +1137,9 @@ export const vodka: Spirit = {
       strength: 2,
       difficulty: "Medium",
       hook: "Rich, bittersweet and crowned with foam — the 1980s classic that never left.",
+      subs: [
+        { ingredient: "Coffee liqueur", swap: "Extra 20ml cold espresso + 10ml sugar syrup" },
+      ],
     },
     {
       slug: "moscow-mule",
@@ -1077,6 +1166,9 @@ export const vodka: Spirit = {
       strength: 2,
       difficulty: "Easy",
       hook: "Tart, dry and unmistakably pink — the 1990s' most famous cocktail.",
+      subs: [
+        { ingredient: "Citron vodka", swap: "Plain vodka + a squeeze of lemon juice" },
+      ],
     },
     {
       slug: "bloody-mary",
@@ -1103,6 +1195,9 @@ export const vodka: Spirit = {
       strength: 2,
       difficulty: "Easy",
       hook: "Dessert that drinks back — the Dude abides.",
+      subs: [
+        { ingredient: "Coffee liqueur", swap: "25ml cold espresso + 10ml sugar syrup" },
+      ],
     },
     {
       slug: "vodka-martini",
@@ -1194,6 +1289,9 @@ export const vodka: Spirit = {
       strength: 2,
       difficulty: "Easy",
       hook: "The gin Gimlet's cooler cousin — two ingredients and total clarity.",
+      subs: [
+        { ingredient: "Lime cordial", swap: "Fresh lime juice + 10ml sugar syrup — sharper, fresher taste" },
+      ],
     },
   ],
 };

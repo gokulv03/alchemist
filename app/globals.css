@@ -820,6 +820,43 @@ svg {
   color: var(--faint);
   margin-bottom: 0.25rem;
 }
+.cocktail-subs {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+.cocktail-subs-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  color: var(--faint);
+  opacity: 0.7;
+  transition: opacity var(--dur-fast);
+}
+.cocktail-subs-toggle:hover {
+  opacity: 1;
+}
+.cocktail-subs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.cocktail-subs-list li {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.cocktail-subs-ingredient {
+  font-style: italic;
+  opacity: 0.75;
+}
 .cocktail-meta {
   margin-top: auto;
   display: flex;
@@ -1827,6 +1864,20 @@ svg {
 }
 .spirit-dark .cocktail-meta {
   border-top: none;
+}
+.spirit-dark .cocktail-subs-toggle {
+  color: rgba(210, 190, 160, 0.45);
+}
+.spirit-dark .cocktail-subs-toggle:hover {
+  color: rgba(232, 215, 190, 0.75);
+  opacity: 1;
+}
+.spirit-dark .cocktail-subs-list li {
+  color: rgba(200, 182, 158, 0.7);
+}
+.spirit-dark .cocktail-subs-ingredient {
+  color: rgba(232, 215, 190, 0.55);
+  font-style: italic;
 }
 .spirit-dark .ingredient-list li {
   background: none;
